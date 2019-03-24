@@ -1,13 +1,18 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <left-panel></left-panel>
+    <router-view class="main" />
   </div>
 </template>
-
+<script>
+  import leftPanel from '../src/components/left-panel'
+  export default {
+    name: 'home',
+    components: {
+      'left-panel': leftPanel
+    }
+  }
+</script>
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -16,16 +21,14 @@
   text-align: center;
   color: #2c3e50;
 }
-#nav {
-  padding: 30px;
-}
+  .main{
+    height: auto;
+    width: 80%;
+    position: absolute;
+    top: 0;
+    right:0;
+    font-family: Times, "Times New Roman", serif;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
